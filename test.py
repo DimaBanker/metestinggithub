@@ -1,5 +1,4 @@
 import numpy as np
-import pandas as pd
 
 start_spread = 0.25
 sigma = 0.15
