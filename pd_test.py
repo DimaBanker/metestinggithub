@@ -1,5 +1,7 @@
 import pandas as pd
 
-df = pd.read_csv('dfm_data.csv', sep=';')
+dfm_df = pd.read_csv('dfm_data.csv', sep=';')
+ruonia_df = pd.read_csv('ruonia_data.csv', sep=';')
 
-print(df.head())
+print(dfm_df.head())
+print(ruonia_df.head())
