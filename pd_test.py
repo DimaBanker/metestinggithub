@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 import datetime
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 dfm_df = pd.read_csv('dfm_data.csv', sep=';', decimal=',')
 ruonia_df = pd.read_csv('ruonia_data.csv', sep=';', decimal=',')
@@ -33,5 +35,11 @@ for i in range(len(dates_df)):
     rates.append([dates_df[i], r.iloc[0], sr / s])
 
 rates_df = pd.DataFrame(rates, columns=cl)
+pd.set_option('display.float_format', '{:.2f}'.format)
+
+rates_df['Spread'] = rates_df['DFM rate'] - rates_df['Ruonia']
 print(rates_df)
+
+
+
 
