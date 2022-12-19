@@ -21,6 +21,7 @@ ruonia_df.sort_values(by='date', inplace=True)
 ruonia_df = ruonia_df.reset_index(drop=True)
 
 dates_df = pd.date_range(datetime.date(2021, 1, 13), datetime.date(2021, 12, 31), freq='d')
+cl = ['Date', 'Ruonia', 'DFM rate']
 rates = []
 
 for i in range(len(dates_df)):
@@ -29,9 +30,8 @@ for i in range(len(dates_df)):
     dfm_df_alive = dfm_df.loc[(dfm_df['maturity_date'] >= dates_df[i]) & (dfm_df['date'] < dates_df[i])]
     s = dfm_df_alive['sum'].sum()
     sr = dfm_df_alive['rate_x_sum'].sum()
-    rates.append([r.iloc[0], (sr / s)])
-    print(dfm_df_alive)
+    rates.append([dates_df[i], r.iloc[0], sr / s])
 
-print(rates)
-
+rates_df = pd.DataFrame(rates, columns=cl)
+print(rates_df)
 
