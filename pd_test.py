@@ -40,6 +40,7 @@ pd.set_option('display.float_format', '{:.2f}'.format)
 rates_df['Spread'] = rates_df['DFM rate'] - rates_df['Ruonia']
 print(rates_df)
 
+plt.plot(rates_df['Date'], rates_df['Spread'])
 
 
 
