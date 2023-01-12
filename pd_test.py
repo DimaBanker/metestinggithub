@@ -2,7 +2,6 @@ import pandas as pd
 import numpy as np
 import datetime
 import matplotlib.pyplot as plt
-import seaborn as sns
 
 dfm_df = pd.read_csv('dfm_data.csv', sep=';', decimal=',')
 ruonia_df = pd.read_csv('ruonia_data.csv', sep=';', decimal=',')
@@ -41,6 +40,4 @@ rates_df['Spread'] = rates_df['DFM rate'] - rates_df['Ruonia']
 print(rates_df)
 
 plt.plot(rates_df['Date'], rates_df['Spread'])
-
-
-
+plt.show()
